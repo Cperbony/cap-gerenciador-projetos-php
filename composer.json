@@ -1,0 +1,24 @@
+{
+    "name": "cperbony/cap-framework",
+    "description": "Projeto Gerenciamento de projetos em PHP. Curso School of Net",
+    "authors": [{
+        "name": "Claudinei Perboni",
+        "email": "cperbony@gmail.com"
+    }],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "CAP\\Framework\\": "src",
+            "App\\": "app"
+        }
+    },
+    "scripts": {
+        "server": "php -S localhost:8080 -t public"
+    },
+    "config": {
+        "process-timeout": 0
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.3"
+    }
+}
