@@ -4,17 +4,24 @@ require __DIR__ . '/vendor/autoload.php';
 
 $router = new CAP\Framework\Router;
 
-$router->add('GET', '/', function () {
-    return 'Estamos na Home';
-});
-
-$router->add('GET', '/projects/(\d+)', function ($params) {
-/*     var_dump($params); */
-    return 'Estamos em Projects de id: ' . $params[1];
-});
+require __DIR__ . '/config/containers.php';
+require __DIR__ . '/config/routes.php';
 
 try {
-    echo $router->run();
+
+    $result = $router->run();
+
+    $response = new CAP\Framework\Response;
+
+    $params = [
+        'container' => $container,
+        'params' => $result['params'],
+    ];
+
+    $response($result['action'], $params);
+
 } catch (\CAP\Framework\Exceptions\HttpException $e) {
+
     echo json_encode(['error' => $e->getMessage()]);
+
 }
