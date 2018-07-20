@@ -1,8 +1,8 @@
 <?php
 
-use Pimple\Container;
-
-$container = new Container();
+$container['events'] = function () {
+    return new Zend\EventManager\EventManager;
+};    
 
 $container['db'] = function() {
     $dsn = 'mysql:host=localhost;dbname=pp_project_manager';
@@ -18,4 +18,8 @@ $container['db'] = function() {
 
     return $pdo;
 
+};
+
+$container['users_model'] = function ($container) {
+    return new \App\Models\Users($container);
 };

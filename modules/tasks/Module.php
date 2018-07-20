@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace CAP\Framework\Tasks;
 
 use CAP\Framework\Modules\Contract;
 
@@ -9,7 +9,7 @@ class Module implements Contract
     public function getNamespaces(): array
     {
         return [
-            'App\\' => __DIR__ . '/src',
+            'CAP\\Framework\\Tasks\\' => __DIR__ . '/src',
         ];
     }
 
